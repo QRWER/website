@@ -1,0 +1,56 @@
+<html>
+  <h1>Процессоры</h1>
+
+  <form>
+    <select [(ngModel)]="newCPU.brand" name="brand">
+      <option [ngValue]="'-'" disabled selected hidden>Производитель</option>
+      <option [ngValue]="'Intel'">Intel</option>
+      <option [ngValue]="'Amd'">Amd</option>
+    </select>
+    <input [(ngModel)]="newCPU.name" name="name" placeholder="Название">
+    <select [(ngModel)]="newCPU.socket" name="socket">
+      <option [ngValue]="'-'" disabled selected hidden>Сокет</option>
+      <option [ngValue]="'Am5'">Am5</option>
+      <option [ngValue]="'Am4'">Am4</option>
+      <option [ngValue]="'Am3+'">Am3+</option>
+      <option [ngValue]="'LGA 1700'">LGA 1700</option>
+      <option [ngValue]="'LGA 1200'">LGA 1200</option>
+      <option [ngValue]="'LGA 1151-v2'">LGA 1151-v2</option>
+      <option [ngValue]="'LGA 1151'">LGA 1151</option>
+    </select>
+    <input [(ngModel)]="newCPU.countCore" name="countCore" placeholder="Кол-во ядер">
+    <select [(ngModel)]="newCPU.GPU" name="GPU">
+      <option [ngValue]="'-'" disabled selected hidden>Встроенное графическое ядро</option>
+      <option [ngValue]="'Am5'">Есть</option>
+      <option [ngValue]="'Am4'">Нет</option>
+    </select>
+    <input [(ngModel)]="newCPU.TDP" name="TDP"  placeholder="Тепловыделение">
+    <button (click)="addTask()" [disabled]="newCPU.brand.trim() === '-' || newCPU.name.trim() === '' || newCPU.socket.trim() === '-' || newCPU.GPU.trim() === '-' || newCPU.countCore.trim() === '' || newCPU.TDP.trim() === '' || isNaN(Number(newCPU.countCore)) || isNaN(Number(newCPU.TDP)) ">Добавить</button>
+  </form>
+
+  <table>
+    <tr>
+      <th>Номер</th>
+      <th>Бренд</th>
+      <th>Название</th>
+      <th>Сокет</th>
+      <th>Кол-во ядер</th>
+      <th>Встроенное GPU</th>
+      <th>TDP</th>
+      <th>Создано</th>
+      <th>Изменено</th>
+    </tr>
+    <tr *ngFor="let CPU of CPUs">
+      <td>{{ CPU.number }}</td>
+      <td>{{ CPU.brand }}</td>
+      <td>{{CPU.name}}</td>
+      <td>{{ CPU.socket }}</td>
+      <td>{{ CPU.countCore }}</td>
+      <td>{{ CPU.GPU }}</td>
+      <td>{{ CPU.TDP }}</td>
+      <td>{{ CPU.createdAt.toLocaleString() }}</td>
+      <td>{{ CPU.lastModifiedAt.toLocaleString()}}</td>
+      <td><button (click)="updateTask(CPU) " [disabled]="newCPU.brand.trim() === '-' || newCPU.name.trim() === '' || newCPU.socket.trim() === '-' || newCPU.GPU.trim() === '-' || newCPU.countCore.trim() === '' || newCPU.TDP.trim() === '' || isNaN(Number(newCPU.countCore)) || isNaN(Number(newCPU.TDP)) ">Изменить</button></td>
+    </tr>
+  </table>
+</html>>

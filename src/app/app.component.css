@@ -1,0 +1,46 @@
+div {
+  margin: 5px;
+}
+
+a {
+  text-align: center;
+  font-size: 25px;
+  color: #C3073F;
+  text-decoration: none
+}
+
+.container {
+  margin-top: 50px;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  justify-items: baseline;
+}
+
+.row:hover {
+  transition: transform 0.2s;
+  transform: scale(1.4);
+}
+
+img {
+  border: 2px solid transparent;
+}
+
+html {
+  display: flex;
+  flex-direction: column;
+  background-image: url(src/assets/images/backplate.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

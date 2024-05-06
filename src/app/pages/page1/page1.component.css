@@ -1,0 +1,50 @@
+input {
+  margin: 5px;
+}
+
+select {
+  margin: 5px;
+}
+
+td {
+  background-image: url(src/assets/images/backplate.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border: 20px solid transparent;
+}
+
+th {
+  background-image: url(src/assets/images/backplate.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border: 20px solid transparent;
+}
+
+html {
+  display: flex;
+  height: 657px;
+  flex-direction: column;
+  background-image: url(src/assets/images/backplate.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #C3073F;
+}
+
+table {
+  background-image: url(src/assets/images/backplate.jpg);
+}

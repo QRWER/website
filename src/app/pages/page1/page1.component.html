@@ -1,0 +1,45 @@
+<html>
+<h1>Видеокарты</h1>
+
+<form>
+  <input [(ngModel)]="newGPU.title" name="title" placeholder="Производитель и модель">
+  <input [(ngModel)]="newGPU.ddrValue" name="gddr" placeholder="Объем видеопамяти">
+  <select [(ngModel)]="newGPU.typeDddr" name="type">
+    <option [ngValue]="'-'" disabled selected hidden>Тип памяти</option>
+    <option [ngValue]="'GDDR6X'">GDDR6X</option>
+    <option [ngValue]="'GDDR6'">GDDR6</option>
+    <option [ngValue]="'GDDR5X'">GDDR5X</option>
+    <option [ngValue]="'GDDR5'">GDDR5</option>
+    <option [ngValue]="'GDDR3'">GDDR3</option>
+    <option [ngValue]="'DDR4'">DDR4</option>
+    <option [ngValue]="'DDR3'">DDR3</option>
+  </select>
+  <input [(ngModel)]="newGPU.bus" name="bus" placeholder="Разрядность шины памяти">
+  <input [(ngModel)]="newGPU.monitorNumber" name="mon" placeholder="Кол-во подключаемых мониторов">
+  <button (click)="addTask()" [disabled]="newGPU.title.trim() === '' || newGPU.ddrValue.trim() === '' || newGPU.typeDddr.trim() === '-' || newGPU.bus.trim() === '' || newGPU.monitorNumber.trim() === '' || isNaN(Number(newGPU.bus)) || isNaN(Number(newGPU.monitorNumber)) || isNaN(Number(newGPU.ddrValue)) ">Добавить</button>
+</form>
+
+<table>
+  <tr>
+    <th>Номер</th>
+    <th>Название</th>
+    <th>Объем видеопамяти</th>
+    <th>Тип памяти</th>
+    <th>Разрядность шины памяти</th>
+    <th>Кол-во подключаемых мониторов</th>
+    <th>Создано</th>
+    <th>Изменено</th>
+  </tr>
+  <tr *ngFor="let GPU of GPUs">
+    <td>{{ GPU.number }}</td>
+    <td>{{ GPU.title }}</td>
+    <td>{{ GPU.ddrValue }}</td>
+    <td>{{ GPU.typeDddr }}</td>
+    <td>{{ GPU.bus }}</td>
+    <td>{{ GPU.monitorNumber }}</td>
+    <td>{{ GPU.createdAt.toLocaleString() }}</td>
+    <td>{{ GPU.lastModifiedAt.toLocaleString()}}</td>
+    <td><button (click)="updateTask(GPU) " [disabled]="newGPU.title.trim() === '' || newGPU.ddrValue.trim() === '' || newGPU.typeDddr.trim() === '-' || newGPU.bus.trim() === '' || newGPU.monitorNumber.trim() === '' || isNaN(Number(newGPU.bus)) || isNaN(Number(newGPU.monitorNumber)) || isNaN(Number(newGPU.ddrValue)) ">Изменить</button></td>
+  </tr>
+</table>
+</html>>
